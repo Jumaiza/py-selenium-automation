@@ -16,7 +16,7 @@ time.sleep(60)
 
 while True:
     date_element = driver.find_element(By.ID, 'preferredDateHidden')
-    date='01/13/2024'
+    date='01/18/2024'
     driver.execute_script("arguments[0].setAttribute('value',arguments[1])", date_element, date)
     time.sleep(5)
     
@@ -28,10 +28,10 @@ while True:
     for element in input_elements:
         value_att = element.get_attribute('value')
         if value_att is not None and value_att == '8:00 AM':
-            print(f"Exam Appointment Found on {date}!")
+            print(f"MCAT Exam Appointment Found on {date}!")
             message = client.messages.create(
                 from_=twilio_phone_number,
-                body=f"Exam Appointment Found on {date}!",
+                body=f"MCAT Exam Appointment Found on {date}!",
                 to=your_phone_number
             )
             print(message.sid)
